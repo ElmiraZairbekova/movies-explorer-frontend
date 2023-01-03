@@ -1,8 +1,10 @@
 .header {
+  box-sizing: border-box;
+  min-height: 74px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 11px 70px;
+  padding: 0px 70px 0px 70px
 }
 
 .header__link {
@@ -16,10 +18,6 @@
 .header__logo:hover {
   opacity: .6;
   cursor: pointer;
-}
-
-.header_type_auth {
-  background-color: #073042;
 }
 
 @media screen and (max-width: 800px) {

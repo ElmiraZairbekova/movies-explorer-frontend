@@ -1,16 +1,15 @@
 .navigation {
-  width: 59.2%;
+  width: 100%;
 }
 
 .navigation__btn-menu {
   display: none;
   margin-left: auto;
-  padding: 0;
   width: 40px;
   height: 43px;
   outline: none;
   border: none;
-  background: transparent url('../../images/burger-button.svg') center center / cover no-repeat;
+  background: transparent url('../../images/burger-button.svg') center center no-repeat;
   transition: opacity .2s linear;
 }
 
@@ -50,7 +49,6 @@
 
 .navigation__list {
   display: flex;
-  padding: 0;
   list-style: none;
 }
 
@@ -65,14 +63,14 @@
 .navigation__link {
   color: #000;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 18px;
   text-decoration: none;
   transition: opacity .2s linear;
 }
 
 .navigation__link:hover {
-  opacity: .6;
+  /* opacity: .6; */
   cursor: pointer;
 }
 
@@ -80,6 +78,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 500;
   width: 100px;
   height: 32px;
   margin: 0;
@@ -108,7 +107,7 @@
   }
 
   .navigation__sidebar {
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     width: 520px;
     min-height: 100vh;
     margin-left: auto;
@@ -142,7 +141,6 @@
   .navigation__link {
     padding: 0 0 4px;
     font-size: 18px;
-    font-weight: 500;
     line-height: 24px;
     text-decoration: none;
   }

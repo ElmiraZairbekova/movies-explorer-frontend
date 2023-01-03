@@ -12,7 +12,6 @@ const MoviesCard = ({ card }) => {
 
   return (
     <li className="movie">
-      <img src={card.image} alt={card.title} className="movie__image"></img>
       <div className="movie__element">
         <p className="movie__title">{card.title}</p>
         <div className="movie__buttons">
@@ -28,6 +27,7 @@ const MoviesCard = ({ card }) => {
         </div>
       </div>
       <p className="movie__duration">{card.duration}</p>
+      <img src={card.image} alt={card.title} className="movie__image"></img>
     </li>
   );
 };
