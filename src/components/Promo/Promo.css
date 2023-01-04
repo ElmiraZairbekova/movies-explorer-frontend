@@ -63,9 +63,7 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .promo {
-    /* padding-top: 183px; */
-  }
+
   .promo__container {
     width: 88.54%;
   }
@@ -100,13 +98,12 @@
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .promo {
-    padding-top: 208px;
     padding-bottom: 39px;
   }
   .promo__title {
     max-width: 99%;
     margin: 0 auto;
-    font-size: 31px;
-    line-height: 39px;
+    font-size: 29px;
+    line-height: 37px;
   }
 }
