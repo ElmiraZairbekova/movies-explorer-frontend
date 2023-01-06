@@ -10,7 +10,7 @@ const MoviesCardList = ({ cards, buttonMore }) => {
   };
 
   return (
-    <section className="movies">
+    <section className="movies-list__wrapper">
       <ul className="movies__list">
       {cards.map((card) => (
           <MoviesCard key={card.id} card={card} />

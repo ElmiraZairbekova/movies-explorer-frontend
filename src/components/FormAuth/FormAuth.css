@@ -73,13 +73,17 @@
   }
   
   .form__field:focus {
-    outline: none;
+    outline: 1px solid rgb(178, 178, 178);
   }
   
   .form__field_color-error {
     color: #ee3465;
   }
-  
+
+  .form__field_color-error:focus {
+    outline: 1px solid #ee3465;
+  }
+
   .form__error {
     opacity: 0;
     display: block;

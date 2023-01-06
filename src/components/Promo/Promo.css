@@ -1,6 +1,8 @@
 .promo {
+  display: flex;
   position: relative;
-  padding-top: 20px;
+  justify-content: space-between;
+  /* margin: 20px auto; */
 }
 
 .promo__container {
