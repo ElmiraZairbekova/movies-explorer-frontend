@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "../Диплом/movies-explorer-frontend"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "mesto-react"
+	}
+}
