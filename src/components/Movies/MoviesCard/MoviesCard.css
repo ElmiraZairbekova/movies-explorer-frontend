@@ -1,0 +1,91 @@
+.movie {
+  padding: 0;
+  background: #FDFDFD;
+  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08)
+}
+
+.movie__image {
+  width: 270px;
+  height: 151px;
+  margin-top: 14px;
+}
+
+.movie__element {
+  display: flex;
+  justify-content: space-between;
+  /* margin: 10.8px 2px 0 0; */
+}
+
+.movie__title {
+  max-width: 220px;
+  margin: 14px 0 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.movie__buttons {
+  margin: 19px 14px 0 0;
+}
+
+.movie__button {
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  border: none;
+  border-radius: 36px;
+  transition: opacity .2s linear;
+}
+
+.movie__button:hover {
+  opacity: .6;
+  cursor: pointer;
+}
+
+.movie__button_inactive {
+  background: #f9f9f9 url(../../../images/icon-inactive.svg) center no-repeat;
+}
+
+.movie__button_active {
+  background: #2BE080 url(../../../images/icon-active.svg) center no-repeat;
+}
+
+.movie__button_delete {
+  width: 16px;
+  height: 16px;
+  background:  url(../../../images/icon-delete.svg) center no-repeat;
+}
+
+.movie__button_delete:hover {
+  background:  url(../../../images/icon-delete.svg) center no-repeat;
+}
+
+.movie__duration {
+  margin: -9px 0 0 14px;
+  color: #a0a0a0;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+@media screen and (max-width: 800px) {
+  .movie__image {
+    width: 339px;
+    height: 190px;
+  }
+
+  .movie__title {
+    max-width: 290px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .movie__title {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .movie__image {
+    width: 300px;
+    height: 168px;
+  }
+}
