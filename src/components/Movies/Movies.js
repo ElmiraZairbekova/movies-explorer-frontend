@@ -3,7 +3,7 @@ import SearchForm from './SearchForm/SearchForm';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
 import Preloader from '../Preloader/Preloader';
 import moviesApi from '../../utils/MoviesApi';
-import mainApi from '../../utils/MainApi.js';
+import mainApi from '../../utils/MainApi';
 
 const Movies = ({ openPopup }) => {
   const [films, setFilms] = useState(null);
