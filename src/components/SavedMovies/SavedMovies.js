@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import SearchForm from '../SearchForm/SearchForm';
-import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import Preloader from '../Preloader/Preloader';
+import SearchForm from '../Movies/SearchForm/SearchForm';
+import MoviesCardList from '../Movies/MoviesCardList/MoviesCardList';
+import Preloader from '../Movies/Preloader/Preloader';
 import mainApi from '../../utils/MainApi.js';
 
 const SavedMovies = ({ openPopup }) => {
