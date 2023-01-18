@@ -178,7 +178,7 @@ const Movies = ({ openPopup }) => {
 
   return (
     <div className="movies">
-      <SearchForm handleGetMovies={handleGetMovies} filmsTumbler={filmsTumbler} filmsInputSearch={filmsInputSearch} handleGetMoviesTumbler={handleGetMoviesTumbler} />
+      {/* <SearchForm handleGetMovies={handleGetMovies} filmsTumbler={filmsTumbler} filmsInputSearch={filmsInputSearch} handleGetMoviesTumbler={handleGetMoviesTumbler} /> */}
       {preloader && <Preloader />}
       {errorText && <div className="movies__text-error">{errorText}</div>}
       {!preloader && !errorText && films !== null && filmsSaved !== null && filmsShowed !== null && (
