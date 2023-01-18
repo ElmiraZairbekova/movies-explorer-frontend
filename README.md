@@ -2,7 +2,11 @@
 
 **О проекте:**
 <br />
-[Frontend GitHub](https://github.com/ElmiraZairbekova/movies-explorer-frontend/tree/level-3)
+
+
+[Frontend GitHub pull](https://github.com/ElmiraZairbekova/movies-explorer-frontend/pull/2)
+
+
 [Backend GitHub](https://github.com/ElmiraZairbekova/movies-explorer-api)
 
 [Frontend](http://movies-diplom.nomoredomains.club)
