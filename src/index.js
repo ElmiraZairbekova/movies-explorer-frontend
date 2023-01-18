@@ -1,20 +1,21 @@
 // Импорт библиотек
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 // Импорт стилей
-import "./index.css";
+import './index.css';
 // Импорт компонентов
-import App from "./components/App/App";
-import reportWebVitals from "./reportWebVitals";
-// Корневой элемент и рендер приложения
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+import App from './components/App/App';
+import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+
+ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
+
 
 reportWebVitals();
