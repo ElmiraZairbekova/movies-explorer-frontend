@@ -60,7 +60,6 @@ const SavedMovies = ({ openPopup }) => {
     }
   }
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     const localStorageFilms = localStorage.getItem('savedFilms');
     if (localStorageFilms) {

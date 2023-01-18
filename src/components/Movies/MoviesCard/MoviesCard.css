@@ -5,8 +5,8 @@
 }
 
 .movie__image {
-  width: 270px;
-  height: 151px;
+  width: 364px;
+  height: 203px;
   margin-top: 14px;
 }
 
@@ -16,11 +16,11 @@
 }
 
 .movie__title {
-  max-width: 220px;
+  max-width: 280px;
   margin: 14px 0 0 14px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
-  line-height: 16px;
+  line-height: 18px;
 }
 
 .movie__buttons {

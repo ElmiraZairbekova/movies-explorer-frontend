@@ -1,11 +1,7 @@
-/* .movies {
+.movies {
   position: relative;
   width: 100%;
 
-} */
-
-.movies {
-  flex: 1 0 auto;
 }
 
 .movies__text-error {

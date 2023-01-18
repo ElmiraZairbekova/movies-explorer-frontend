@@ -60,7 +60,7 @@ const Movies = ({ openPopup }) => {
     localStorage.setItem('filmsTumbler', false);
 
     if (!inputSearch) {
-      setErrorText('Нужно ввести ключевое слово');
+      setErrorText('Нужно ввести название фильма');
       return false;
     }
 
@@ -182,10 +182,11 @@ const Movies = ({ openPopup }) => {
       {preloader && <Preloader />}
       {errorText && <div className="movies__text-error">{errorText}</div>}
       {!preloader && !errorText && films !== null && filmsSaved !== null && filmsShowed !== null && (
-        <MoviesCardList handleMore={handleMore} filmsRemains={films} films={filmsShowed} savedMoviesToggle={savedMoviesToggle} filmsSaved={filmsSaved} />
+      <MoviesCardList handleMore={handleMore} filmsRemains={films} films={filmsShowed} savedMoviesToggle={savedMoviesToggle} filmsSaved={filmsSaved} />
       )}
     </div>
   );
 };
 
 export default Movies;
+

@@ -8,7 +8,7 @@ const MoviesCard = ({ film, savedMoviesToggle, filmsSaved }) => {
   function handleFavoriteToogle() {
     const newFavorite = !favorite;
     const savedFilm = filmsSaved.filter((obj) => {
-      return obj.movieId == film.id;
+      return obj.movieId === film.id;
     });
     savedMoviesToggle({ ...film, _id: savedFilm.length > 0 ? savedFilm[0]._id : null }, newFavorite);
   }
@@ -24,7 +24,7 @@ const MoviesCard = ({ film, savedMoviesToggle, filmsSaved }) => {
   useEffect(() => {
     if (pathname !== '/saved-movies') {
       const savedFilm = filmsSaved.filter((obj) => {
-        return obj.movieId == film.id;
+        return obj.movieId === film.id;
       });
 
       if (savedFilm.length > 0) {
@@ -37,9 +37,6 @@ const MoviesCard = ({ film, savedMoviesToggle, filmsSaved }) => {
 
   return (
     <li className="movie">
-      <a className="movie__image-content" href={pathname === '/saved-movies' ? film.trailer : film.trailerLink} target="_blank"  rel="noreferrer">
-        <img className="movie__image" src={pathname === '/saved-movies' ? `${film.image}` : `https://api.nomoreparties.co${film.image.url}`} alt={film.nameRU}></img>
-      </a>
       <div className="movie__element">
         <p className="movie__title">{film.nameRU}</p>
         <div className="movie__buttons">
@@ -53,6 +50,9 @@ const MoviesCard = ({ film, savedMoviesToggle, filmsSaved }) => {
         </div>
       </div>
       <p className="movie__duration">{getMovieDuration(film.duration)}</p>
+      <a className="movie__image-content" href={pathname === '/saved-movies' ? film.trailer : film.trailerLink} target="_blank"  rel="noreferrer">
+        <img className="movie__image" src={pathname === '/saved-movies' ? `${film.image}` : `https://api.nomoreparties.co${film.image.url}`} alt={film.nameRU}></img>
+      </a>
     </li>
   );
 };
