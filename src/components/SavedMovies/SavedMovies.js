@@ -60,7 +60,8 @@ const SavedMovies = ({ openPopup }) => {
     }
   }
 
-  useEffect(async () => {
+  useEffect(() => {
+    async function check() {
     const localStorageFilms = localStorage.getItem('savedFilms');
     if (localStorageFilms) {
       setFilms(JSON.parse(localStorageFilms));
@@ -82,6 +83,7 @@ const SavedMovies = ({ openPopup }) => {
         openPopup(`Ошибка сервера ${err}`);
       }
     }
+   } check()
   }, [openPopup]);
 
   return (

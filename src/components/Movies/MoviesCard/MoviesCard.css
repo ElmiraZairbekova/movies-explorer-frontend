@@ -60,7 +60,7 @@
 }
 
 .movie__duration {
-  margin: -9px 0 0 14px;
+  margin-left: 14px;
   color: #a0a0a0;
   font-size: 11px;
   line-height: 13px;

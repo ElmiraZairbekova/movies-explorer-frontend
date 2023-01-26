@@ -69,6 +69,10 @@
   transition: opacity .2s linear;
 }
 
+.navigation__link_active {
+  border-bottom: 1px solid #000;
+}
+
 .navigation__link:hover {
   /* opacity: .6; */
   cursor: pointer;
@@ -138,12 +142,6 @@
     display: flex;
   }
 
-  .navigation__link {
-    padding: 0 0 4px;
-    font-size: 18px;
-    line-height: 24px;
-    text-decoration: none;
-  }
 
   .navigation__link_type_profile {
     font-size: 14px;

@@ -6,12 +6,13 @@
   display: grid;
   justify-content: center;
   justify-items: start;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(364px, 1fr));
   gap: 23px 20px;
   margin: 0;
-  padding: 70px 0 0;
+  margin-top: 70px;
   box-sizing: border-box;
   list-style: none;
+  padding: 0;
 }
 
 .cards__text{
@@ -67,6 +68,7 @@
 
   .cards__list {
     padding: 40px 0 0;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
     gap: 18px 20px;
   }
 
