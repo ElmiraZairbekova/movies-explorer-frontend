@@ -1,87 +1,137 @@
-import '../FormAuth/FormAuth';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../../images/header-logo.svg';
-import isEmail from 'validator/es/lib/isEmail';
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import logo from "../../images/header-logo.svg";
 
-function Register({ onRegister }) {
-  const [inputValues, setInputValues] = useState({});
-  const [errors, setErrors] = useState({});
-  const [isValid, setIsValid] = useState(false);
+function Register({ onRegister, isLoading }) {
+  const [formValues, setFormValues] = useState({
+    name: {
+      value: "",
+      isValid: false,
+      errorMessage: "",
+    },
+    email: {
+      value: "",
+      isValid: false,
+      errorMessage: "",
+    },
+    password: {
+      value: "",
+      isValid: false,
+      errorMessage: "",
+    },
+  });
 
-  const handleInputChange = (evt) => {
-    const target = evt.target;
-    const name = target.name;
-    const value = target.value;
+  const [disabled, setDisabled] = useState(false);
 
-    if (name === 'email') {
-      if (!isEmail(value)) {
-        target.setCustomValidity('Некорректый адрес почты');
-      } else {
-        target.setCustomValidity('');
-      }
-    }
+  const isValid =
+    formValues.name.isValid &&
+    formValues.email.isValid &&
+    formValues.password.isValid;
 
-    setInputValues({ ...inputValues, [name]: value });
-    setErrors({ ...errors, [name]: target.validationMessage });
-    setIsValid(target.closest('form').checkValidity());
-  };
+  function handleChange(e) {
+    const { name, value, validity, validationMessage } = e.target;
+    setFormValues((prevState) => ({
+      ...prevState,
+      [name]: {
+        ...formValues[name],
+        value,
+        isValid: validity.valid,
+        errorMessage: validationMessage,
+      },
+    }));
+  }
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
+  useEffect(() => {
+    isValid ? setDisabled(false) : setDisabled(true);
+  }, [isValid]);
 
-    onRegister(inputValues);
-  };
+  function handleSubmit(e) {
+    e.preventDefault();
+    onRegister({
+      name: formValues.name.value,
+      email: formValues.email.value,
+      password: formValues.password.value,
+    });
+  }
+
+  useEffect(() => {
+    isLoading ? setDisabled(true) : setDisabled(false);
+  }, [isLoading]);
 
   return (
     <section className="form">
       <div className="form__container">
         <Link to="/" className="form__link">
-          <img className="form__logo" src={logo} alt="Логотип Movies Explorer"></img>
+          <img
+            className="form__logo"
+            src={logo}
+            alt="Логотип Movies Explorer"
+          ></img>
         </Link>
         <h2 className="form__title">Добро пожаловать!</h2>
         <form className="form__inputs" onSubmit={handleSubmit}>
           <div className="form__items">
             <label className="form__item">
               <p className="form__item-text">Имя</p>
-              <input className="form__field" name="name" placeholder="Введите имя" value={inputValues.name || ''} onChange={handleInputChange} required />
-              <p className="form__error">Что-то пошло не так...</p>
+              <input
+                className="form__field"
+                name="name"
+                placeholder="Введите имя"
+                value={formValues.name.value || ""}
+                onChange={handleChange}
+                required
+              />
+              <p className="form__error">{formValues.name.errorMessage}</p>
             </label>
 
             <label className="form__item">
               <p className="form__item-text">E-mail</p>
               <input
-                className={`form__field ${errors.email ? 'form__field_color-error' : ''}`}
+                className={`form__field ${
+                  formValues.email.errorMessage && "form__field_color-error"
+                }`}
                 name="email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                onChange={handleChange}
+                value={formValues.email.value || ""}
                 type="email"
-                placeholder="Введите почту"
-                value={inputValues.email || ''}
-                onChange={handleInputChange}
                 required
+                placeholder="Введите E-mail"
               />
-              <p className={`form__error ${errors.email ? 'form__error-display' : ''}`}>{errors.email}</p>
+              <p className="form__error">{formValues.email.errorMessage}</p>
             </label>
 
             <label className="form__item">
               <p className="form__item-text">Пароль</p>
               <input
-                className={`form__field ${errors.password ? 'form__field_color-error' : ''}`}
+                className={`form__field ${
+                  formValues.password.errorMessage && "form__field_color-error"
+                }`}
                 name="password"
+                onChange={handleChange}
+                value={formValues.password.value || ""}
                 type="password"
-                minLength="6"
-                placeholder="Введите пароль"
-                value={inputValues.password || ''}
-                onChange={handleInputChange}
                 required
+                placeholder="Введите пароль"
               />
-              <p className={`form__error ${errors.password ? 'form__error-display' : ''}`}>{errors.password}</p>
+              <p className="form__error">{formValues.password.errorMessage}</p>
             </label>
           </div>
-          <button className={`form__button ${isValid ? "" : "form__button_disabled"}`} type="submit" disabled={!isValid ? true : ''}>Зарегистрироваться</button>
+          <button
+            className={`form__button ${
+              isValid && !isLoading ? "" : "form__button_disabled"
+            }`}
+            type="submit"
+            disabled={disabled}
+          >
+            Зарегистрироваться
+          </button>
         </form>
         <p className="form__text">
           Уже зарегистрированы?
-          <Link to="/signin" className="form__link">Войти</Link>
+          <Link to="/signin" className="form__link">
+            Войти
+          </Link>
         </p>
       </div>
     </section>

@@ -25,11 +25,11 @@
   line-height: 92px;
 }
 
-.cards__button-container {
+/* .cards__button-container {
   max-width: 320px;
   margin: 0 auto;
   padding: 45px 0 49px;
-}
+} */
 
 .cards__button {
   width: 100%;
@@ -47,6 +47,10 @@
 .cards__button:hover {
   opacity: .6;
   cursor: pointer;
+}
+
+.cards-list__saved-devider {
+  margin-top: 105px;
 }
 
 @media all and (max-width: 800px) {
@@ -72,7 +76,7 @@
     gap: 18px 20px;
   }
 
-  .cards__button-container {
+  /* .cards__button-container {
     max-width: 240px;
-  }
+  } */
 }

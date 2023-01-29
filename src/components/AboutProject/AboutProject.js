@@ -28,7 +28,9 @@ function AboutProject() {
           <p className="about-project__timeline__stack-text">Back-end</p>
         </div>
         <div className="about-project__timeline-wrapper">
-          <p className="about-project__timeline__stack-line about-project__timeline__stack-line-frontend">4 недели</p>
+          <p className="about-project__timeline__stack-line about-project__timeline__stack-line-frontend">
+            4 недели
+          </p>
           <p className="about-project__timeline__stack-text">Front-end</p>
         </div>
       </div>

@@ -1,10 +1,9 @@
-
 import successImage from "../../images/success.svg";
 import unsuccessImage from "../../images/unsuccess.svg";
 
 const InfoTooltip = ({ isOpen, onClose, text, success }) => {
   return (
-    <div className={`popup popup_type_tooltip ${isOpen ? 'popup_opened' : ''}`}>
+    <div className={`popup popup_type_tooltip ${isOpen ? "popup_opened" : ""}`}>
       <div className="popup__container">
         <button
           type="button"
@@ -20,6 +19,6 @@ const InfoTooltip = ({ isOpen, onClose, text, success }) => {
       </div>
     </div>
   );
-}
+};
 
 export default InfoTooltip;

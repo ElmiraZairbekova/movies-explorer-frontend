@@ -49,6 +49,17 @@
   color: #a0a0a0;
 }
 
+.search__input_error {
+  outline: 1px solid red;
+  border-radius: 9px;
+}
+
+.search__input_error:focus {
+  transition: outline 2s ease;
+  outline: 1px solid red;
+  border-radius: 9px;
+}
+
 .search__button {
   background: #2BE080 url(../../../images/button-search.svg) center no-repeat;
   padding: 8px 12px;
@@ -58,6 +69,12 @@
   width: 34px;
   height: 34px;
   margin-right: 19px;
+  margin-left: 10px;
+}
+
+.search__button_error {
+  cursor: default;
+  opacity: 0.6;
 }
 
 .search__button:hover {

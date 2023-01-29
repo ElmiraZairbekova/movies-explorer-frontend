@@ -1,10 +1,19 @@
-import { Route, Redirect } from 'react-router-dom';
-import Preloader from '../Preloader/Preloader';
+import { useEffect } from "react";
+import { useState } from "react";
+import { Route, Redirect } from "react-router-dom";
 
 const ProtectedRoute = ({ component: Component, ...props }) => {
+  const [loggedIn, setLoggedIn] = useState(true);
+
+  useEffect(() => {
+    if (!localStorage.getItem("jwt")) {
+      setLoggedIn(false);
+    }
+  }, []);
+
   return (
     <Route>
-      {() => (props.isLoading ? <Preloader /> : props.loggedIn ? <Component {...props} /> : <Redirect to="/" />)}
+      {() => (loggedIn ? <Component {...props} /> : <Redirect to="/" />)}
     </Route>
   );
 };

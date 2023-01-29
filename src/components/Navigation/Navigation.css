@@ -9,12 +9,13 @@
   height: 43px;
   outline: none;
   border: none;
-  background: transparent url('../../images/burger-button.svg') center center no-repeat;
-  transition: opacity .2s linear;
+  background: transparent url("../../images/burger-button.svg") center center
+    no-repeat;
+  transition: opacity 0.2s linear;
 }
 
 .navigation__btn-menu:hover {
-  opacity: .6;
+  opacity: 0.6;
   cursor: pointer;
 }
 
@@ -37,13 +38,14 @@
   height: 22px;
   outline: none;
   border: none;
-  background: transparent url('../../images/close-button.svg') center center / 32px no-repeat;
+  background: transparent url("../../images/close-button.svg") center center /
+    32px no-repeat;
   align-self: flex-end;
-  transition: opacity .2s linear;
+  transition: opacity 0.2s linear;
 }
 
 .navigation__btn-close:hover {
-  opacity: .6;
+  opacity: 0.6;
   cursor: pointer;
 }
 
@@ -66,7 +68,7 @@
   font-weight: 500;
   line-height: 18px;
   text-decoration: none;
-  transition: opacity .2s linear;
+  transition: opacity 0.2s linear;
 }
 
 .navigation__link_active {
@@ -87,7 +89,7 @@
   height: 32px;
   margin: 0;
   border-radius: 20px;
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   font-size: 14px;
 }
 
@@ -106,7 +108,7 @@
     width: 100%;
     top: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, 0.3);
     z-index: 2;
   }
 
@@ -141,7 +143,6 @@
   .navigation__list-item_type_main {
     display: flex;
   }
-
 
   .navigation__link_type_profile {
     font-size: 14px;

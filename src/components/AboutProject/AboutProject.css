@@ -64,7 +64,7 @@
   width: 100%;
   height: 27px;
   margin: 0;
-  background: #2BE080;
+  background: #2be080;
   padding-top: 9px;
   font-weight: 400;
   font-size: 14px;
@@ -74,7 +74,7 @@
 }
 
 .about-project__timeline__stack-line-frontend {
-  background: #F2F2F2;
+  background: #f2f2f2;
 }
 
 .about-project__timeline__stack-text {
@@ -83,7 +83,7 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
-  color: #A0A0A0;
+  color: #a0a0a0;
   margin-bottom: 110px;
 }
 
@@ -99,7 +99,7 @@
     font-weight: 400;
     line-height: 20px;
     margin-top: 26px;
-    }
+  }
 
   .about-project__description {
     margin-right: 38px;

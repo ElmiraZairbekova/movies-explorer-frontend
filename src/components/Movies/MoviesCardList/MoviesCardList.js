@@ -1,33 +1,164 @@
-import { useLocation } from 'react-router-dom';
-import MoviesCard from '../MoviesCard/MoviesCard';
+// import { useLocation } from 'react-router-dom';
+// import MoviesCard from '../MoviesCard/MoviesCard';
 
-const MoviesCardList = ({ films, savedMoviesToggle, filmsSaved, filmsRemains, handleMore }) => {
-  const { pathname } = useLocation();
+// const MoviesCardList = ({ films, savedMoviesToggle, filmsSaved, filmsRemains, handleMore }) => {
+//   const { pathname } = useLocation();
+
+//   return (
+//     <section className="cards">
+//       {films.length > 0 ? (
+//         <ul className="cards__list">
+//           {films.map((film) => (
+//             <MoviesCard
+//               key={film.id || film.movieId}
+//               film={film}
+//               savedMoviesToggle={savedMoviesToggle}
+//               filmsSaved={filmsSaved}
+//             />
+//           ))}
+//         </ul>
+//       ) : (
+//         <div className="cards__text">Ничего не найдено</div>
+//       )}
+
+//       {filmsRemains.length > 0 && pathname !== '/saved-movies' && (
+//         <div className="cards__button-container">
+//           <button className="cards__button" type="button" name="more" onClick={handleMore}>Ещё</button>
+//         </div>
+//       )}
+//     </section>
+//   );
+// };
+
+// export default MoviesCardList;
+
+
+import { useEffect, useState } from "react";
+import { Route, useLocation } from "react-router-dom";
+import {
+  MAX_ELEMENTS,
+  TIMEOUT,
+  WIDTH_1025PX,
+  WIDTH_1280PX,
+  WIDTH_768PX
+} from "../../../utils/constants";
+import MoviesCard from "../MoviesCard/MoviesCard";
+
+function MoviesCardList({
+  foundMovies,
+  onSaveMovie,
+  savedMovies,
+  onDeleteMovie
+}) {
+  const [maxEl, setMaxEl] = useState(12);
+  const [renderedMovies, setRenderedMovies] = useState([]);
+  const [width, setWidth] = useState(1280);
+  const location = useLocation();
+
+  function setDefaultMovies(count) {
+    setMaxEl(count);
+    let movies = [];
+    foundMovies.forEach((item, i) => {
+      if (i < count) {
+        movies.push(item);
+      }
+    });
+    setRenderedMovies(movies);
+  }
+
+  useEffect(() => {
+    if (width < WIDTH_768PX) {
+      setDefaultMovies(5);
+    } else if (width < WIDTH_1025PX) {
+      setDefaultMovies(6);
+    } else if (width < WIDTH_1280PX) {
+      setDefaultMovies(9);
+    } else {
+      setDefaultMovies(12);
+    }
+    if (location.pathname === "/saved-movies") {
+      setMaxEl(MAX_ELEMENTS);
+    }
+  }, [foundMovies, width, location]);
+
+  useEffect(() => {
+    setMovies();
+  }, [maxEl]);
+
+  useEffect(() => {
+    onSubscribe();
+    return () => offSubscribe;
+  }, []);
+
+  function handleSubscribe() {
+    setWidth(window.innerWidth);
+  }
+
+  function onSubscribe() {
+    window.addEventListener("resize", function () {
+      setTimeout(handleSubscribe, TIMEOUT);
+    });
+  }
+
+  function offSubscribe() {
+    window.removeEventListener("resize", function () {
+      setTimeout(handleSubscribe, TIMEOUT);
+    });
+  }
+
+  function setMovies() {
+    let movies = [];
+    foundMovies.forEach((item, i) => {
+      if (i < maxEl) {
+        movies.push(item);
+      }
+    });
+    setRenderedMovies(movies);
+  }
+
+  function handleAddButtonClick() {
+    if (width < WIDTH_768PX) {
+      setMaxEl(maxEl + 5);
+    } else if (width < WIDTH_1025PX) {
+      setMaxEl(maxEl + 2);
+    } else if (width < WIDTH_1280PX) {
+      setMaxEl(maxEl + 3);
+    } else {
+      setMaxEl(maxEl + 4);
+    }
+  }
 
   return (
-    <section className="cards">
-      {films.length > 0 ? (
-        <ul className="cards__list">
-          {films.map((film) => (
-            <MoviesCard
-              key={film.id || film.movieId}
-              film={film}
-              savedMoviesToggle={savedMoviesToggle}
-              filmsSaved={filmsSaved}
-            />
-          ))}
-        </ul>
+    <div className="cards">
+      <ul className="cards__list">
+        {renderedMovies.map((item) => (
+          <MoviesCard
+            key={item.id || item._id}
+            movie={item}
+            onSaveMovie={onSaveMovie}
+            savedMovies={savedMovies}
+            onDeleteMovie={onDeleteMovie}
+          />
+        ))}
+      </ul>
+      {foundMovies.length !== renderedMovies.length ? (
+        <Route path="/movies">
+          <button
+            className="cards__button"
+            type="button"
+            onClick={handleAddButtonClick}
+          >
+            Ещё
+          </button>
+        </Route>
       ) : (
-        <div className="cards__text">Ничего не найдено</div>
+        ""
       )}
-
-      {filmsRemains.length > 0 && pathname !== '/saved-movies' && (
-        <div className="cards__button-container">
-          <button className="cards__button" type="button" name="more" onClick={handleMore}>Ещё</button>
-        </div>
-      )}
-    </section>
+      <Route path="/saved-movies">
+        <div className="cards-list__saved-devider"></div>
+      </Route>
+    </div>
   );
-};
+}
 
 export default MoviesCardList;
