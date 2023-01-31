@@ -4,7 +4,10 @@ class MainApi {
   }
 
   _getResponseData(res) {
-    return res.ok ? res.json() : Promise.reject(res);
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
   }
 
   getUserInfo() {
@@ -45,19 +48,19 @@ class MainApi {
     return fetch(`${this._url}/movies`, {
       method: "POST",
       headers: {
-        "content-type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        country: movie.country,
+        image: 'https://api.nomoreparties.co' + movie.image.url,
+        trailer: movie.trailerLink,
+        thumbnail: 'https://api.nomoreparties.co' + movie.image.url,
+        movieId: movie.id,
+        country: movie.country || 'Неизвестно',
         director: movie.director,
         duration: movie.duration,
         year: movie.year,
         description: movie.description,
-        image: `https://api.nomoreparties.co/${movie.image.url}`,
-        trailerLink: movie.trailerLink,
-        thumbnail: `https://api.nomoreparties.co/${movie.image.formats.thumbnail.url}`,
-        movieId: movie.id,
         nameRU: movie.nameRU,
         nameEN: movie.nameEN,
       }),
