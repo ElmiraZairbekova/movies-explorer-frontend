@@ -12,7 +12,6 @@ function SearchForm({ onSearch, onSubmitCheckbox, disabled, disabledSaved }) {
   const location = useLocation();
 
   useEffect(() => {
-    // эффект, который устанавливает значения полей input и checkbox, если они сохранены в памяти
     if (location.pathname === "/movies") {
       setInputValue(localStorage.getItem("movieName"));
       setCheckbox(JSON.parse(localStorage.getItem("checkboxStatus")));

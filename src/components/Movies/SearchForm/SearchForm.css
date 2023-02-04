@@ -12,7 +12,6 @@
   width: 80.5%;
   margin: 0 0 40px;
   padding: 6px;
-  /* border-radius: 9px; */
   background-color: #f9f9f9;
   border-bottom-left-radius: 9px;
   border-top-left-radius: 9px;
@@ -165,10 +164,6 @@
     background-color: #ffff;
     border: none
   }
-
-  /* .search__films {
-    margin: 0;
-  } */
 }
 
 @media screen and (max-width: 540px) {
