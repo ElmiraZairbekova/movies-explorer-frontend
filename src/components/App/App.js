@@ -144,7 +144,7 @@ function App() {
       );
       if (searchMovies.length === 0) {
         setIsTooltipPopupOpen(true);
-        setPopupText("По вашему запросу ничего не найдено..");
+        setPopupText("По вашему запросу ничего не найдено");
         setSuccess(false);
       } else {
         setCheckboxStatus(false);
@@ -164,7 +164,7 @@ function App() {
           );
           if (searchMovies.length === 0) {
             setIsTooltipPopupOpen(true);
-            setPopupText("По вашему запросу ничего не найдено.");
+            setPopupText("По вашему запросу ничего не найдено");
             setSuccess(false);
           } else {
             setCheckboxStatus(false);
@@ -191,7 +191,7 @@ function App() {
     );
     if (searchMovies.length === 0) {
       setIsTooltipPopupOpen(true);
-      setPopupText("По вашему запросу ничего не найдено.");
+      setPopupText("По вашему запросу ничего не найдено");
       setSuccess(false);
       setPreloaderStatus(false);
     } else {
@@ -281,12 +281,12 @@ function App() {
         console.log(err);
         if (err.status === 409) {
           setSuccess(false);
-          setPopupText("Пользователь с таким email уже зарегистрирован.");
+          setPopupText("Пользователь с таким email уже зарегистрирован");
           setIsTooltipPopupOpen(true);
         }
         if (err.status === 500) {
           setSuccess(false);
-          setPopupText("Произошла ошибка. Попробуйте ещё раз.");
+          setPopupText("Произошла ошибка. Попробуйте ещё раз");
           setIsTooltipPopupOpen(true);
         }
       })
@@ -314,12 +314,12 @@ function App() {
       .catch((err) => {
         if (err.status === 401) {
           setSuccess(false);
-          setPopupText("Неверный логин или пароль.");
+          setPopupText("Неверный логин или пароль");
           setIsTooltipPopupOpen(true);
         }
         if (err.status === 500) {
           setSuccess(false);
-          setPopupText("Произошла ошибка. Попробуйте ещё раз.");
+          setPopupText("Произошла ошибка. Попробуйте ещё раз");
           setIsTooltipPopupOpen(true);
         }
       })
