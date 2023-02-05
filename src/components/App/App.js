@@ -139,9 +139,10 @@ function App() {
 
   function handleSearchMovie(movie, checked) {
     if (allMovies.length !== 0) {
-      const searchMovies = allMovies.filter((item) =>
+      const foundMovies = allMovies.filter((item) =>
         item.nameRU.toLowerCase().includes(movie.toLowerCase())
       );
+      const searchMovies = checked ? foundMovies.filter((item) => item.duration <= 40) : foundMovies
       if (searchMovies.length === 0) {
         setIsTooltipPopupOpen(true);
         setPopupText("По вашему запросу ничего не найдено");

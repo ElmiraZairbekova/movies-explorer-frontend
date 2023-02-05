@@ -38,7 +38,7 @@ function SearchForm({ onSearch, onSubmitCheckbox, disabled, disabledSaved }) {
     onSubmitCheckbox(!checkbox);
   }
 
-  function handleInputChange(e) {
+ function handleInputChange(e) {
     setInputValue(e.target.value);
     if (e.target.value.length === 0) {
       setInputSearchError({
