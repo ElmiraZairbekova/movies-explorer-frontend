@@ -23,3 +23,8 @@ export const WIDTH_1025PX = 1025;
 export const WIDTH_1280PX = 1280;
 export const MAX_ELEMENTS = 120;
 export const TIMEOUT = 1000;
+export const WIDTH_768PX_INITIAL_CARDS = 5;
+export const WIDTH_1025PX_INITIAL_CARDS = 6;
+export const WIDTH_1280PX_INITIAL_CARDS = 9;
+
+export const SHORT_MOVIE_DURATION = 40;

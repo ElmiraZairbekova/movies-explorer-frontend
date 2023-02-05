@@ -11,6 +11,8 @@ import * as auth from "../../utils/auth";
 import mainApi from "../../utils/MainApi";
 import moviesApi from "../../utils/MoviesApi";
 
+import {SHORT_MOVIE_DURATION} from "../../utils/constants";
+
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
@@ -142,7 +144,7 @@ function App() {
       const foundMovies = allMovies.filter((item) =>
         item.nameRU.toLowerCase().includes(movie.toLowerCase())
       );
-      const searchMovies = checked ? foundMovies.filter((item) => item.duration <= 40) : foundMovies
+      const searchMovies = checked ? foundMovies.filter((item) => item.duration <= SHORT_MOVIE_DURATION) : foundMovies
       if (searchMovies.length === 0) {
         setIsTooltipPopupOpen(true);
         setPopupText("По вашему запросу ничего не найдено");
@@ -207,7 +209,7 @@ function App() {
     let filteredMovies;
     let movies = JSON.parse(localStorage.getItem("searchedMovies"));
     if (checkbox) {
-      filteredMovies = movies.filter((item) => item.duration <= 40);
+      filteredMovies = movies.filter((item) => item.duration <= SHORT_MOVIE_DURATION);
     } else if (!checkbox) {
       filteredMovies = movies;
     }
@@ -217,7 +219,7 @@ function App() {
 
   function handleSavedMoviesSubmitCheckbox(checkbox) {
     if (checkbox) {
-      setSavedMovies(savedMovies.filter((item) => item.duration <= 40));
+      setSavedMovies(savedMovies.filter((item) => item.duration <= SHORT_MOVIE_DURATION));
     } else if (!checkbox) {
       setSavedMovies(savedMoviesCopy);
     }

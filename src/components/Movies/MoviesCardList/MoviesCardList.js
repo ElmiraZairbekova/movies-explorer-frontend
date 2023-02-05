@@ -6,7 +6,10 @@ import {
   TIMEOUT,
   WIDTH_1025PX,
   WIDTH_1280PX,
-  WIDTH_768PX
+  WIDTH_768PX,
+  WIDTH_768PX_INITIAL_CARDS,
+  WIDTH_1025PX_INITIAL_CARDS,
+  WIDTH_1280PX_INITIAL_CARDS,
 } from "../../../utils/constants";
 import MoviesCard from "../MoviesCard/MoviesCard";
 
@@ -34,11 +37,11 @@ function MoviesCardList({
 
   useEffect(() => {
     if (width < WIDTH_768PX) {
-      setDefaultMovies(5);
+      setDefaultMovies(WIDTH_768PX_INITIAL_CARDS);
     } else if (width < WIDTH_1025PX) {
-      setDefaultMovies(6);
+      setDefaultMovies(WIDTH_1025PX_INITIAL_CARDS);
     } else if (width < WIDTH_1280PX) {
-      setDefaultMovies(9);
+      setDefaultMovies(WIDTH_1280PX_INITIAL_CARDS);
     } else {
       setDefaultMovies(12);
     }
