@@ -33,9 +33,12 @@ function SearchForm({ onSearch, onSubmitCheckbox, disabled, disabledSaved }) {
       });
   }, []);
 
-  function handleChangeCheckbox() {
-    setCheckbox(!checkbox);
-    onSubmitCheckbox(!checkbox);
+  function handleChangeCheckbox(e) {
+    // setCheckbox(!checkbox);
+    // onSubmitCheckbox(!checkbox);
+    const isShortFilms = e.target.checked
+    setCheckbox(isShortFilms)
+    onSearch(inputValue, isShortFilms)
   }
 
  function handleInputChange(e) {

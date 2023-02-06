@@ -139,12 +139,12 @@ function App() {
     setIsTooltipPopupOpen(false);
   }
 
-  function handleSearchMovie(movie, checked) {
+  function handleSearchMovie(movie, isShortFilms) {
     if (allMovies.length !== 0) {
       const foundMovies = allMovies.filter((item) =>
         item.nameRU.toLowerCase().includes(movie.toLowerCase())
       );
-      const searchMovies = checked ? foundMovies.filter((item) => item.duration <= SHORT_MOVIE_DURATION) : foundMovies
+      const searchMovies = isShortFilms ? foundMovies.filter((item) => item.duration <= SHORT_MOVIE_DURATION) : foundMovies
       if (searchMovies.length === 0) {
         setIsTooltipPopupOpen(true);
         setPopupText("По вашему запросу ничего не найдено");
@@ -153,7 +153,7 @@ function App() {
         setCheckboxStatus(false);
         localStorage.setItem("movieName", movie);
         localStorage.setItem("searchedMovies", JSON.stringify(searchMovies));
-        localStorage.setItem("checkboxStatus", JSON.stringify(checked));
+        localStorage.setItem("checkboxStatus", JSON.stringify(isShortFilms));
         setFoundMovies(searchMovies);
       }
       return;
@@ -178,7 +178,7 @@ function App() {
               "searchedMovies",
               JSON.stringify(searchMovies)
             );
-            localStorage.setItem("checkboxStatus", JSON.stringify(checked));
+            localStorage.setItem("checkboxStatus", JSON.stringify(isShortFilms));
             setFoundMovies(searchMovies);
           }
         })
