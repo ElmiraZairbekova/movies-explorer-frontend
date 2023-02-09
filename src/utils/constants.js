@@ -28,3 +28,4 @@ export const WIDTH_1025PX_INITIAL_CARDS = 6;
 export const WIDTH_1280PX_INITIAL_CARDS = 9;
 
 export const SHORT_MOVIE_DURATION = 40;
+export const SHORT_MOVIE_DURATION3 = 360;

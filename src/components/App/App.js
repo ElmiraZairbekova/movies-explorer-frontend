@@ -72,12 +72,15 @@ function App() {
   useEffect(() => {
     if (
       localStorage.getItem("searchedMovies") &&
-      localStorage.getItem("checkboxStatus")
+      localStorage.getItem("checkboxStatusSavedMovies")
     ) {
-      const checkboxStatus = JSON.parse(localStorage.getItem("checkboxStatus"));
+      const checkboxStatus = JSON.parse(localStorage.getItem("checkboxStatusSavedMovies"));
       handleSubmitCheckbox(checkboxStatus);
     }
   }, []);
+
+
+
 
   useEffect(() => {
     foundMovies.length !== 0
@@ -189,9 +192,13 @@ function App() {
 
   function handleSearchSavedMovie(query, checkbox) {
     setPreloaderStatus(true);
-    const searchMovies = savedMovies.filter((item) =>
+    const foundMovies = savedMovies.filter((item) =>
       item.nameRU.toLowerCase().includes(query.toLowerCase())
     );
+    const searchMovies = checkbox ? savedMovies.filter((item) => item.duration <= SHORT_MOVIE_DURATION) : foundMovies
+    // const searchMovies = savedMovies.filter((item) =>
+    //   item.nameRU.toLowerCase().includes(query.toLowerCase())
+    // );
     if (searchMovies.length === 0) {
       setIsTooltipPopupOpen(true);
       setPopupText("По вашему запросу ничего не найдено");
@@ -199,12 +206,11 @@ function App() {
       setPreloaderStatus(false);
     } else {
       setCheckboxStatus(false);
-      localStorage.setItem("checkboxStatus", JSON.stringify(checkbox));
+      localStorage.setItem("checkboxStatusSavedMovies", JSON.stringify(checkbox));
       setSavedMovies(searchMovies);
       setPreloaderStatus(false);
     }
   }
-
   function handleSubmitCheckbox(checkbox) {
     let filteredMovies;
     let movies = JSON.parse(localStorage.getItem("searchedMovies"));
@@ -225,6 +231,7 @@ function App() {
     }
     localStorage.setItem("checkboxStatusSavedMovies", JSON.stringify(checkbox));
   }
+  
 
   function handleDeleteMovie(movie) {
     mainApi
