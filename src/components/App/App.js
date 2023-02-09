@@ -69,15 +69,15 @@ function App() {
     }
   }, []);
 
-  useEffect(() => {
-    if (
-      localStorage.getItem("searchedMovies") &&
-      localStorage.getItem("checkboxStatusSavedMovies")
-    ) {
-      const checkboxStatus = JSON.parse(localStorage.getItem("checkboxStatusSavedMovies"));
-      handleSubmitCheckbox(checkboxStatus);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (
+  //     localStorage.getItem("searchedMovies") &&
+  //     localStorage.getItem("checkboxStatusSavedMovies")
+  //   ) {
+  //     const checkboxStatus = JSON.parse(localStorage.getItem("checkboxStatusSavedMovies"));
+  //     handleSubmitCheckbox(checkboxStatus);
+  //   }
+  // }, []);
 
 
 
